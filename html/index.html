@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>To Do List</title>
+  </head>
+  <body>
+    <div id="body">
+      <div id="title">
+        <h2>
+          <b>
+            To Do List
+          </b>
+        </h2>
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <img src="../images/menu.png" height="50" width="50">
+        </button>
+      </div>
+      <div id="main_content">
+        <div id="todo_list">
+          <p id="no_task">Aucune tâche ajoutée jusqu'à présent</p>
+          <div id="prio-3" class="todo_prio"></div>
+          <div id="prio-2" class="todo_prio"></div>
+          <div id="prio-1" class="todo_prio"></div>
+          <div id="prio-0" class="todo_prio"></div>
+        </div>
+      </div>
+      <div id="footer">
+        <i>Author: Pribal</i>
+      </div>
+    </div>
+
+    <!-- OffCanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasRightLabel">Actions</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="todo_buttons">
+          <h3><u>Ajouter une tâche</u></h3>
+          <div>
+            <label for="name_tache_input">Nom de la tâche</label>
+            <input type="text" id="name_tache_input">
+          </div>
+          <div>
+            <label for="date_tache_input">Échéance de la tâche</label>
+            <input type="datetime-local" id="date_tache_input">
+          </div>
+          <div id="select-prio">
+            <label for="date_tache_input">Priorité de la tâche</label>
+            <select id="task_priority">
+              <option value="0">Faible</option>
+              <option value="1">Modérée</option>
+              <option value="2">Importante</option>
+              <option value="3">Critique</option>
+            </select>
+          </div>
+          <button id="add_task" disabled>Ajouter la tâche</button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/renderer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  </body>
+</html>
