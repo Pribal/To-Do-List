@@ -4,7 +4,11 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        appDirectory : "/home/pribal/Bureau/Développement/Electron/to_do_list",
+        exePath: "todolist.exe",
+        iconPath: "/images/logo.png"
+      }
     },
     {
       name: '@electron-forge/maker-zip',
@@ -12,11 +16,11 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {},
-    },
+      config: {
+        options : {
+          icon: 'images/logo.png'
+        }
+      },
+    }
   ],
 };

@@ -1,9 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron')
 const path = require('path')
 const Store = require('electron-store')
 
 Store.initRenderer();
-
 
 try {
   require('electron-reloader')(module)
@@ -17,6 +16,7 @@ function createWindow () {
       nodeIntegration: true,
       contextIsolation: false
     },
+    icon: 'images/logo.png'
   })
   win.setMenu(null)
   win.loadFile("./html/index.html")
@@ -29,6 +29,10 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
     }
+  })
+
+  globalShortcut.register('Control+C', () => {
+    app.quit()
   })
 })
 
